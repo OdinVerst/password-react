@@ -1,0 +1,25 @@
+{
+	"extends": ["airbnb", "prettier", "plugin:react/recommended"],
+	"plugins": ["prettier"],
+	"rules": {
+		"prettier/prettier": "error",
+		"no-unused-vars": "warn",
+		"no-console": "warn",
+		"func-names": "off",
+		"no-process-exit": "off",
+		"object-shorthand": "off",
+		"class-methods-use-this": "off",
+		"react/jsx-indent": ["error", 2],
+		"react/jsx-props-no-spreading": ["off"]
+	},
+	"env": {
+		"browser": true,
+		"node": true
+	},
+	"globals": {
+		"window": true,
+		"document": true,
+		"Swiper": true,
+		"fetch": true
+	}
+}
