@@ -1,9 +1,10 @@
 import passwordGenerator from '../src/modules/password-generator';
 
-const pattern = /^[A-Za-z0-9\!\@\#\$\%\^\&\*\(\)\_\+\{\}\:\"\<\>\?\\|\[\]\/'\,\.\`\~]{8,16}$/;
+const pattern = /^[A-Za-z0-9\!\@\#\$\%\^\&\*\(\)\_\+\{\}\:\"\<\>\?\\|\[\]\/'\,\.\`\~]{8,25}$/;
 
 describe('method generatePassword', () => {
-	let password, password2;
+	let password;
+	let password2;
 	it('return password of set pattern', () => {
 		password = passwordGenerator();
 		expect(password).toMatch(pattern);

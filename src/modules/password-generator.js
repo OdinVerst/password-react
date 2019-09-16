@@ -1,4 +1,4 @@
-const SPECIAL = '!@#$%^&*()_+{}:"<>?|[],./`';
+const SPECIAL = '!@#$%^&*()_+{}:"<>?|[]\',./`~';
 const LOWERCASE = 'abcdefghijklmnopqrstuvwxyz';
 const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const NUMBERS = '0123456789';
