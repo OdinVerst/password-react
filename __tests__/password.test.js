@@ -23,5 +23,23 @@ describe('Password', () => {
 		const p = passwordRenderer.getRenderOutput();
 		expect(p.type).toBe('div');
 		expect(p.props.children.length).toBe(6);
+
+		const rules = TestUtils.scryRenderedDOMComponentsWithTag(password, 'li');
+		expect(rules.length).toBe(5);
+		expect(rules.length).toEqual(5);
+		expect(fd(rules[0].textContent)).toEqual(
+			'Must have at least one upper-case character'
+		);
+		expect(fd(rules[0].textContent)).toBe(
+			'Must have at least one upper-case character'
+		);
+		const generateBtn = TestUtils.findRenderedDOMComponentWithClass(
+			password,
+			'generate-btn'
+		);
+		expect(fd(rules[1]).firstChild.nodeName.toLowerCase()).toBe('#text');
+		TestUtils.Simulate.click(fd(generateBtn));
+		expect(fd(rules[1]).firstChild.nodeName.toLowerCase()).toBe('strike');
+		done();
 	});
 });
