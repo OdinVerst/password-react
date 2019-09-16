@@ -9,7 +9,7 @@ const PasswordVisibility = props => {
         checked={props.checked}
         onChange={props.onChange}
       />
-      Show password
+      <span style={{ marginLeft: '10px' }}>Show password</span>
     </label>
   );
 };
