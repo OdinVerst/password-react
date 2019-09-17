@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PasswordInfo = props => {
-  console.log(props);
   return (
     <div>
       <h4>Password Strength</h4>

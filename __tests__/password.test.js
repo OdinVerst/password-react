@@ -1,17 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import TestUtils from 'react-dom/test-utils';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
 import { createRenderer } from 'react-test-renderer/shallow';
 import Password from '../src/components/password';
 
+Enzyme.configure({ adapter: new Adapter() });
+
 describe('Password', () => {
 	it('change after clicking the Generate btn', done => {
-		const fd = ReactDOM.findDOMNode;
-
-		const password = TestUtils.renderIntoDocument(
+		const password = mount(
 			<Password
-				uppercase={true}
-				lowercase={true}
+				upperCase={true}
+				lowerCase={true}
 				special={true}
 				number={true}
 				over6={true}
@@ -24,22 +25,15 @@ describe('Password', () => {
 		expect(p.type).toBe('div');
 		expect(p.props.children.length).toBe(6);
 
-		const rules = TestUtils.scryRenderedDOMComponentsWithTag(password, 'li');
-		expect(rules.length).toBe(5);
-		expect(rules.length).toEqual(5);
-		expect(fd(rules[0].textContent)).toEqual(
+		expect(password.find('li').length).toBe(5);
+		expect(password.find('li').at(0)).toIncludeText(
 			'Must have at least one upper-case character'
 		);
-		expect(fd(rules[0].textContent)).toBe(
-			'Must have at least one upper-case character'
+		password.find('.generate-btn').simulate('click');
+
+		expect(password.find('li').at(0)).toHaveHTML(
+			'<li><s>Must have at least one upper-case character</s></li>'
 		);
-		const generateBtn = TestUtils.findRenderedDOMComponentWithClass(
-			password,
-			'generate-btn'
-		);
-		expect(fd(rules[1]).firstChild.nodeName.toLowerCase()).toBe('#text');
-		TestUtils.Simulate.click(fd(generateBtn));
-		expect(fd(rules[1]).firstChild.nodeName.toLowerCase()).toBe('strike');
 		done();
 	});
 });
