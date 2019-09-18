@@ -1,11 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const PasswordGenerate = props => {
+const PasswordGenerate = ({ onClick, children }) => {
   return (
-    <button onClick={props.onClick} className="btn generate-btn" type="button">
-      {props.children}
+    <button onClick={onClick} className="btn generate-btn" type="button">
+      {children}
     </button>
   );
+};
+
+PasswordGenerate.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default PasswordGenerate;

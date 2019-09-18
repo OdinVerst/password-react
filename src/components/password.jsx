@@ -60,13 +60,17 @@ const Password = props => {
 
   return (
     <div className="well form-group col-md-6">
-      <label>Password</label>
-      <PasswordInput
-        name="password"
-        onChange={onChange}
-        value={password}
-        visible={visible}
-      />
+      {/* eslint-disable-next-line */}
+      <label style={{ width: '100%' }} htmlFor="password">
+        Password
+        <PasswordInput
+          name="password"
+          onChange={onChange}
+          value={password}
+          visible={visible}
+          id="password"
+        />
+      </label>
       <PasswordVisibility checked={visible} onChange={toggleVisibility} />
       <PasswordInfo rules={processedRules} />
       <PasswordGenerate onClick={generate}>Generate</PasswordGenerate>

@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const PasswordInfo = props => {
+const PasswordInfo = ({ rules }) => {
   return (
     <div>
       <h4>Password Strength</h4>
       <ul>
-        {props.rules.map(processedRule => {
+        {rules.map(processedRule => {
           if (processedRule.isCompleted) {
             return (
               <li key={processedRule.key}>
@@ -18,6 +19,10 @@ const PasswordInfo = props => {
       </ul>
     </div>
   );
+};
+
+PasswordInfo.propTypes = {
+  rules: PropTypes.instanceOf(Array).isRequired
 };
 
 export default PasswordInfo;
