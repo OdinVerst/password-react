@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import passwordGenerator from '../modules/password-generator';
 import rules from '../modules/rules';
 import PasswordInput from './PasswordInput';
@@ -11,6 +11,8 @@ const Password = props => {
   const [password, setPassword] = useState('');
   const [visible, setVisible] = useState(false);
   const [ok, setOk] = useState(false);
+
+  const inputEl = useRef(null);
 
   const checkStrength = () => {
     const strengthLoc = {};
@@ -58,6 +60,11 @@ const Password = props => {
     return false;
   });
 
+  const savePassword = () => {
+    inputEl.current.select();
+    document.execCommand('copy');
+  };
+
   return (
     <div className="well form-group col-md-6">
       {/* eslint-disable-next-line */}
@@ -69,6 +76,7 @@ const Password = props => {
           value={password}
           visible={visible}
           id="password"
+          refProp={inputEl}
         />
       </label>
       <PasswordVisibility checked={visible} onChange={toggleVisibility} />
@@ -77,6 +85,7 @@ const Password = props => {
       <button
         type="button"
         className={`btn btn-primary  ${ok ? '' : ' disabled'}`}
+        onClick={savePassword}
       >
         Save
       </button>

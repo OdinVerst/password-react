@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PasswordInput = ({ visible, name, value, onChange }) => {
+const PasswordInput = ({ visible, name, value, onChange, refProp }) => {
   return (
     <input
       className="form-control"
@@ -9,6 +9,7 @@ const PasswordInput = ({ visible, name, value, onChange }) => {
       name={name}
       value={value}
       onChange={onChange}
+      ref={refProp}
     />
   );
 };
