@@ -6,7 +6,7 @@ import PasswordGenerate from './PasswordGenerate';
 import PasswordInfo from './PasswordInfo';
 import PasswordVisibility from './PasswordVisibility';
 
-const Password = props => {
+const Password = (props) => {
   const [strength, setStrength] = useState({});
   const [password, setPassword] = useState('');
   const [visible, setVisible] = useState(false);
@@ -16,7 +16,7 @@ const Password = props => {
 
   const checkStrength = () => {
     const strengthLoc = {};
-    Object.keys(props).forEach(key => {
+    Object.keys(props).forEach((key) => {
       if (props[key] && rules[key].pattern.test(password)) {
         strengthLoc[key] = true;
       }
@@ -24,7 +24,7 @@ const Password = props => {
     });
   };
 
-  const onChange = e => {
+  const onChange = (e) => {
     setPassword(e.target.value);
   };
 

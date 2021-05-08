@@ -4,7 +4,7 @@ const UPPERCASE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const NUMBERS = '0123456789';
 const ALL = `${SPECIAL}${LOWERCASE}${UPPERCASE}${NUMBERS}`;
 
-const getIterable = length => Array.from({ length }, (_, index) => index + 1);
+const getIterable = (length) => Array.from({ length }, (_, index) => index + 1);
 
 const pick = (set, min, max) => {
 	let length = min;
@@ -16,7 +16,7 @@ const pick = (set, min, max) => {
 	);
 };
 
-const shuffle = set => {
+const shuffle = (set) => {
 	const array = set.split('');
 	const { length } = array;
 	const iterable = getIterable(length).reverse();

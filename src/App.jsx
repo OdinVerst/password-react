@@ -4,13 +4,4 @@ import Password from './components/password';
 
 const node = document.querySelector('#root');
 
-ReactDOM.render(
-  <Password
-    upperCase={true}
-    lowerCase={true}
-    special={true}
-    number={true}
-    over6={true}
-  />,
-  node
-);
+ReactDOM.render(<Password upperCase lowerCase special number over6 />, node);
